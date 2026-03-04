@@ -4,7 +4,7 @@
       <FieldLabel v-if="label">{{ label }}</FieldLabel>
       <component
         :is="componentType"
-        v-bind="field"
+        v-bind="{ ...field, ...$attrs }"
         :type="type"
         :placeholder="placeholder"
         :aria-invalid="!!errors.length"
@@ -19,6 +19,10 @@ import { Field as VeeField } from 'vee-validate'
 import { Field, FieldLabel, FieldError } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+
+defineOptions({
+  inheritAttrs: false
+})
 
 const props = defineProps({
   name: { type: String, required: true },
