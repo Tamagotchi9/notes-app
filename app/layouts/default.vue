@@ -1,19 +1,18 @@
 <template>
-  <div>
-    <header class="flex justify-end m-5">
-      <user-profile-popover />
-    </header>
+  <SidebarProvider class="overflow-y-hidden">
+    <Sidebar/>
     <main>
       <slot />
     </main>
     <Toaster />
     <dialogs />
-  </div>
+  </SidebarProvider>
 </template>
 
 <script setup>
 import 'vue-sonner/style.css'
 import { Toaster } from '~/components/ui/sonner'
-import UserProfilePopover from '~/components/user-profile-popover.vue'
 import dialogs from '~/components/dialogs/dialogs.vue'
+import { SidebarProvider } from '@/components/ui/sidebar'
+import Sidebar from '~/layouts/includes/sidebar.vue'
 </script>
